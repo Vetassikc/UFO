@@ -1,9 +1,19 @@
 // Чекаємо, поки вся сторінка (DOM) завантажиться, перш ніж виконувати скрипт
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Знаходимо всі кнопки-фільтри та всі елементи меню
+    // --- НОВИЙ КОД ДЛЯ КЕРУВАННЯ ЗАСТАВКОЮ ---
+    const preloader = document.getElementById('preloader');
+    // Встановлюємо таймер, щоб приховати заставку через 3.2 секунди
+    setTimeout(() => {
+        preloader.classList.add('hidden');
+    }, 3200);
+    // --- КІНЕЦЬ НОВОГО КОДУ ---
+
+
+    // Знаходимо всі кнопки-фільтри та всі елементи меню (старий код)
     const filterButtons = document.querySelectorAll('.filter-button');
     const menuItems = document.querySelectorAll('.menu-item');
+
 
     // Додаємо обробник кліку для кожної кнопки
     filterButtons.forEach(button => {
@@ -57,3 +67,25 @@ style.innerHTML = `
     }
 `;
 document.head.appendChild(style);
+
+// === ГЕНЕРАЦІЯ ЗІРОК ДЛЯ ФОНУ ===
+function createStars() {
+    const container = document.querySelector('body');
+    const starsContainer = document.createElement('div');
+    starsContainer.className = 'stars-container';
+    
+    for (let i = 0; i < 200; i++) { // Створюємо 200 зірок
+        const star = document.createElement('div');
+        const sizeClass = i % 20 === 0 ? 'stars-large' : i % 5 === 0 ? 'stars-medium' : 'stars-small';
+        star.className = `stars ${sizeClass}`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.animationDelay = `${Math.random() * 4}s`; // Різна затримка для асинхронного блимання
+        starsContainer.appendChild(star);
+    }
+    container.prepend(starsContainer); // Додаємо контейнер на початок body
+}
+
+// Запускаємо генерацію зірок після завантаження сторінки
+createStars();
+

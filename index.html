@@ -3,7 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UFO Burger - Космічна їжа в Цюриху</title>
+    <title>UFO Burger Zürich - Космічна їжа з соціальною місією</title>
+
+    <meta
+      name="description"
+      content="UFO Burger - унікальні закриті та смеш-бургери в Цюриху (Zürich HB). Спробуй космічний смак! Підтримуємо інтеграцію біженців. Доставка через Uber Eats та Just Eat."
+    />
+    <meta
+      name="keywords"
+      content="UFO Burger, burger zurich, food truck zurich, smash burger, zurich eats, zuerich hb food, street food zurich, takeaway zurich, уфо бургер, їжа цюрих, фудтрак цюрих"
+    />
+
+    <meta
+      property="og:title"
+      content="UFO Burger Zürich - Космічна їжа з соціальною місією"
+    />
+    <meta
+      property="og:description"
+      content="Спробуй унікальні закриті UFO-бургери біля головного вокзалу Цюриха!"
+    />
+    <meta
+      property="og:image"
+      content="https://vetassikc.github.io/UFO/hero-burger.jpg"
+    />
+    <meta property="og:url" content="https://vetassikc.github.io/UFO/" />
+    <meta property="og:type" content="website" />
+
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,6 +38,10 @@
     />
   </head>
   <body>
+    <div id="preloader">
+      <img src="./img/ufo.png" alt="Flying UFO" id="flying-ufo" />
+    </div>
+
     <div class="stars"></div>
     <div class="twinkling"></div>
 
@@ -76,6 +105,20 @@
         </div>
       </section>
 
+      <section id="gallery">
+        <h2>ГАЛЕРЕЯ НАШИХ СТРАВ</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="hero-burger.jpg" alt="UFO Burger" />
+          </div>
+          <div class="gallery-item">
+            <img src="promo-burger.jpg" alt="UFO Burger" />
+          </div>
+          <div class="gallery-item placeholder"></div>
+          <div class="gallery-item placeholder"></div>
+        </div>
+      </section>
+
       <section id="order">
         <h2>ЗАМОВИТИ ДОСТАВКУ</h2>
         <p>Насолоджуйтесь нашими бургерами, де б ви не були!</p>
@@ -98,12 +141,36 @@
         <h2>ДЕ НАС ЗНАЙТИ</h2>
         <p>Наш космічний корабель-фудтрак знаходиться тут:</p>
         <p class="address">Zürich HB (Головний вокзал), Цюрих, Швейцарія</p>
-        <a
-          href="https://www.google.com/maps/place/Zürich+HB"
-          target="_blank"
-          class="map-link"
-          >Показати на карті</a
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2701.299491104211!2d8.53798981562279!3d47.37792677916987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47900a08cc68204f%3A0x2323a3c27a5d3866!2sZ%C3%BCrich%20HB!5e0!3m2!1sen!2sch!4v1687123456789!5m2!1sen!2sch"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </section>
+      <section id="contact">
+        <h2>ЗВ'ЯЖІТЬСЯ З НАМИ</h2>
+        <p>Маєте питання чи пропозиції? Напишіть нам!</p>
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/movwlrez"
+          method="POST"
         >
+          <input type="text" name="name" placeholder="Ваше ім'я" required />
+          <input type="email" name="email" placeholder="Ваш Email" required />
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Ваше повідомлення..."
+            required
+          ></textarea>
+          <button type="submit" class="form-button">Відправити</button>
+        </form>
       </section>
     </main>
 
