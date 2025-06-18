@@ -89,3 +89,31 @@ function createStars() {
 // Запускаємо генерацію зірок після завантаження сторінки
 createStars();
 
+// === ЛОГІКА ДЛЯ КНОПКИ "ПОВЕРНУТИСЯ НАГОРУ" ===
+
+// Знаходимо нашу кнопку в документі
+const backToTopButton = document.getElementById('back-to-top-btn');
+
+// Функція, яка перевіряє, наскільки прокручена сторінка
+const scrollFunction = () => {
+    // Якщо прокрутили більше ніж на 300px від верху сторінки
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        // Додаємо кнопці клас 'visible', щоб вона з'явилася
+        backToTopButton.classList.add('visible');
+    } else {
+        // Інакше - забираємо клас, щоб вона зникла
+        backToTopButton.classList.remove('visible');
+    }
+};
+
+// Функція для плавного скролу нагору
+const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Магія плавного скролу!
+    });
+};
+
+// Додаємо слухачів подій
+window.onscroll = () => scrollFunction(); // Викликаємо функцію при кожному скролі
+backToTopButton.onclick = () => scrollToTop(); // Викликаємо функцію при кліку на кнопку
