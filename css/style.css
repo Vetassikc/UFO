@@ -176,25 +176,12 @@ header {
     position: relative;
     z-index: 2;
     color: #ffffff;
-    /* Переконуємось, що текст білий */
     text-align: center;
-
-    /* Збільшуємо відступи, щоб було краще видно фон */
     padding: 100px 20px;
-
-    /* Встановлюємо фонове зображення з ефектом затемнення */
-    /* linear-gradient створює напівпрозорий чорний шар поверх зображення */
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url('/img/hero-burger.jpg');
-
-    /* Налаштування фонового зображення */
+    /* фон буде додано в HTML */
     background-size: cover;
-    /* Масштабує зображення, щоб воно покрило весь блок */
     background-position: center center;
-    /* Центрує зображення */
     background-repeat: no-repeat;
-    /* Забороняє повторення зображення */
 }
 
 header h1 {
