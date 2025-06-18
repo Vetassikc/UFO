@@ -5,6 +5,9 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    background: #000;
+    overflow-x: hidden;
+    /* Ховаємо горизонтальний скрол */
 }
 
 /* === НОВИЙ АНІМОВАНИЙ ФОН ІЗ ЗІРКАМИ (PURE CSS) === */
@@ -18,11 +21,7 @@ body {
     }
 }
 
-body {
-    background: #000;
-    overflow-x: hidden;
-    /* Ховаємо горизонтальний скрол */
-}
+
 
 .stars-container {
     position: fixed;

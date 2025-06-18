@@ -89,42 +89,48 @@ function createStars() {
 // Запускаємо генерацію зірок після завантаження сторінки
 createStars();
 
-// === ЛОГІКА ДЛЯ КНОПКИ "ПОВЕРНУТИСЯ НАГОРУ" ===
+// === ФІНАЛЬНА ВЕРСІЯ КОДУ ДЛЯ КНОПКИ "ПОВЕРНУТИСЯ НАГОРУ" ===
 
-// === ДІАГНОСТИЧНА ВЕРСІЯ КОДУ ДЛЯ КНОПКИ "НАГОРУ" ===
+// Ця функція запуститься тільки після того, як вся сторінка буде готова
+document.addEventListener('DOMContentLoaded', () => {
 
-// Знаходимо нашу кнопку в документі
-const backToTopButton = document.getElementById('back-to-top-btn');
+    // Підтвердження, що основний скрипт почав працювати
+    console.log('DOM завантажено. Шукаємо кнопку...');
 
-// Перевіряємо, чи знайшлася кнопка, щоб уникнути помилок
-if (backToTopButton) {
-    // Функція, яка перевіряє, наскільки прокручена сторінка
-    const scrollFunction = () => {
-        // Ця змінна буде містити поточну позицію прокрутки
-        const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+    const backToTopButton = document.getElementById('back-to-top-btn');
 
-        // ВИВОДИМО ПОТОЧНУ ПОЗИЦІЮ В КОНСОЛЬ ДЛЯ ДІАГНОСТИКИ
-        console.log('Позиція прокрутки:', scrollPosition);
+    // Перевіряємо, чи знайшлася кнопка
+    if (backToTopButton) {
+        console.log('Кнопка "нагору" успішно знайдена!');
 
-        // Якщо прокрутили більше ніж на 300px від верху сторінки
-        if (scrollPosition > 300) {
-            // Додаємо кнопці клас 'visible', щоб вона з'явилася
-            backToTopButton.classList.add('visible');
-        } else {
-            // Інакше - забираємо клас, щоб вона зникла
-            backToTopButton.classList.remove('visible');
-        }
-    };
+        // Функція, яка показує або ховає кнопку
+        const toggleButtonVisibility = () => {
+            const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+            
+            // Діагностика, яка спрацює ТІЛЬКИ ЯКЩО подія scroll відбулася
+            console.log('Подія scroll! Позиція:', scrollPosition);
 
-    // Функція для плавного скролу нагору
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    };
+            if (scrollPosition > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        };
 
-    // Додаємо слухачів подій
-    window.addEventListener('scroll', scrollFunction); // Використовуємо addEventListener
-    backToTopButton.addEventListener('click', scrollToTop); // Використовуємо addEventListener
-}
+        // Функція для скролу нагору
+        const scrollToTop = () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        // Прив'язуємо слухача події до вікна
+        window.addEventListener('scroll', toggleButtonVisibility);
+        
+        // Прив'язуємо слухача події до кнопки
+        backToTopButton.addEventListener('click', scrollToTop);
+
+        console.log('Слухачі подій для кнопки та скролу додано.');
+
+    } else {
+        console.error('ПОМИЛКА: Кнопка "нагору" з id "back-to-top-btn" не знайдена в HTML.');
+    }
+});

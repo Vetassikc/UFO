@@ -195,13 +195,26 @@
           action="https://formspree.io/f/movwlrez"
           method="POST"
         >
-          <input type="text" name="name" placeholder="Ваше ім'я" required />
-          <input type="email" name="email" placeholder="Ваш Email" required />
+          <input
+            type="text"
+            name="name"
+            placeholder="Ваше ім'я"
+            required
+            autocomplete="name"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Ваш Email"
+            required
+            autocomplete="email"
+          />
           <textarea
             name="message"
             rows="5"
             placeholder="Ваше повідомлення..."
             required
+            autocomplete="off"
           ></textarea>
           <button type="submit" class="form-button">Відправити</button>
         </form>
