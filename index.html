@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UFO Burger - Космічна їжа в Цюриху</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <header>
+      <h1>UFO BURGER</h1>
+      <p class="slogan">Starte durch mit Ufo Burger!</p>
+      <img
+        src="./img/hero-burger.jpg"
+        alt="Соковитий UFO бургер у розрізі на жовтому фоні"
+        class="hero-image"
+      />
+    </header>
+
+    <main>
+      <section id="menu">
+        <h2>НАШЕ КОСМІЧНЕ МЕНЮ</h2>
+
+        <div class="menu-image-container">
+          <img
+            src="./img/promo-burger.jpeg"
+            alt="UFO бургер на темному кам'яному фоні"
+            class="menu-image"
+          />
+        </div>
+
+        <div class="filter-container">
+          <button class="filter-button active" data-filter="all">Всі</button>
+          <button class="filter-button" data-filter="ufo">UFO-Бургери</button>
+          <button class="filter-button" data-filter="smash">
+            Смеш-Бургери
+          </button>
+          <button class="filter-button" data-filter="sides">Додатки</button>
+        </div>
+
+        <div class="menu-item" data-category="ufo">
+          <h4>Класичний з яловичиною та сиром</h4>
+          <p class="price">15-20 CHF</p>
+        </div>
+        <div class="menu-item" data-category="ufo">
+          <h4>Корейський (Tteokgalbi та кімчі)</h4>
+          <p class="price">18-22 CHF</p>
+        </div>
+        <div class="menu-item" data-category="ufo">
+          <h4>Веганський "Метеор" (Фалафель, хумус)</h4>
+          <p class="price">18-22 CHF</p>
+        </div>
+        <div class="menu-item" data-category="ufo">
+          <h4>Зимовий UFO (Яловичина, раклет, журавлина)</h4>
+          <p class="price">20-25 CHF</p>
+        </div>
+        <div class="menu-item" data-category="smash">
+          <h4>Класичний з сиром</h4>
+          <p class="price">15-20 CHF</p>
+        </div>
+        <div class="menu-item" data-category="smash">
+          <h4>З беконом та соусом "Big Mac"</h4>
+          <p class="price">18-22 CHF</p>
+        </div>
+        <div class="menu-item" data-category="sides">
+          <h4>Галактична UFO-картопля (спіральна)</h4>
+          <p class="price">8-10 CHF</p>
+        </div>
+        <div class="menu-item" data-category="sides">
+          <h4>Комбо (Бургер + Напій + Картопля)</h4>
+          <p class="price">30-35 CHF</p>
+        </div>
+      </section>
+
+      <section id="order">
+        <h2>ЗАМОВИТИ ДОСТАВКУ</h2>
+        <p>Насолоджуйтесь нашими бургерами, де б ви не були!</p>
+        <a href="#" class="delivery-button uber-eats">Замовити на Uber Eats</a>
+        <a href="#" class="delivery-button just-eat">Замовити на Just Eat</a>
+      </section>
+
+      <section id="mission">
+        <h2>НАША СОЦІАЛЬНА МІСІЯ</h2>
+        <p>
+          "UFO Burger" – це не просто їжа. Це проєкт, створений для досягнення
+          фінансової незалежності та підтримки нашої родини. Ми прагнемо
+          інтегрувати біженців у швейцарське суспільство, надаючи робочі місця.
+          Кожен куплений вами бургер – це крок до цієї мети. Дякуємо за вашу
+          підтримку!
+        </p>
+      </section>
+
+      <section id="location">
+        <h2>ДЕ НАС ЗНАЙТИ</h2>
+        <p>Наш космічний корабель-фудтрак знаходиться тут:</p>
+        <p class="address">Zürich HB (Головний вокзал), Цюрих, Швейцарія</p>
+        <a
+          href="https://www.google.com/maps/place/Zürich+HB"
+          target="_blank"
+          class="map-link"
+          >Показати на карті</a
+        >
+      </section>
+    </main>
+
+    <footer>
+      <h3>Слідкуйте за нами в космосі!</h3>
+      <div class="social-links">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+      <p class="contact-info">
+        Контакт: Олена |
+        <a href="mailto:ufo.burger.zurich@gmail.com"
+          >ufo.burger.zurich@gmail.com</a
+        >
+      </p>
+      <p class="copyright">&copy; 2025 UFO Burger. Всі права захищено.</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,356 @@
+/* === Загальні стилі для всього сайту === */
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Створюємо градієнтний фон для глибини космосу */
+    background: #000000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Orbitron', sans-serif;
+}
+
+main {
+    padding: 10px;
+    /* Робимо основний контент видимим над анімованим фоном */
+    position: relative;
+    z-index: 2;
+}
+
+section {
+    background-color: rgba(42, 42, 62, 0.9);
+    /* Додаємо прозорість, щоб було видно зорі */
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 600px;
+    border: 1px solid #ffd700;
+    /* Додаємо ефект світіння для блоків */
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    /* Анімація появи */
+    opacity: 0;
+    /* Початковий стан - прозорий */
+    animation: fadeInSection 1.5s ease-out forwards;
+}
+
+/* Затримка анімації для кожної наступної секції */
+section:nth-of-type(1) {
+    animation-delay: 0.2s;
+}
+
+section:nth-of-type(2) {
+    animation-delay: 0.4s;
+}
+
+section:nth-of-type(3) {
+    animation-delay: 0.6s;
+}
+
+section:nth-of-type(4) {
+    animation-delay: 0.8s;
+}
+
+
+/* === АНІМАЦІЇ (КЛЮЧОВІ КАДРИ) === */
+
+/* Анімація появи секцій */
+@keyframes fadeInSection {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Анімація руху фонових зірок */
+@keyframes move-twink-back {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+/* Анімація пульсації для кнопок */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(255, 100, 100, 0.4);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(255, 100, 100, 0.8);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(255, 100, 100, 0.4);
+    }
+}
+
+/* === СТИЛІ ДЛЯ АНІМОВАНОГО ФОНУ === */
+.stars,
+.twinkling {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+}
+
+.twinkling {
+    background: transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+    animation: move-twink-back 200s linear infinite;
+}
+
+/* === Стилі для заголовка === */
+header {
+    padding: 40px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+header h1 {
+    font-size: 3.5em;
+    color: #ffd700;
+    margin: 0;
+    /* Неонове світіння для головного заголовка */
+    text-shadow: 0 0 10px #ffd700, 0 0 25px #ffd700, 0 0 40px rgba(255, 215, 0, 0.5);
+}
+
+.slogan {
+    font-size: 1.2em;
+    color: #dddddd;
+}
+
+/* === Стилі для меню === */
+#menu h2 {
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #555;
+    padding: 15px 5px;
+    transition: background-color 0.3s;
+}
+
+.menu-item:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+    /* Підсвічування при наведенні */
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item h4 {
+    margin: 0;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.price {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    color: #ffd700;
+    margin: 0;
+    padding-left: 15px;
+}
+
+/* === Стилі для кнопок доставки === */
+#order p {
+    margin-bottom: 25px;
+}
+
+.delivery-button {
+    display: block;
+    padding: 15px 20px;
+    margin: 10px auto;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1em;
+    text-decoration: none;
+    color: #ffffff;
+    max-width: 300px;
+    transition: background-color 0.3s, transform 0.2s;
+    /* Запускаємо анімацію пульсації */
+    animation: pulse 2.5s infinite;
+}
+
+/* Видаляємо стару заливку, робимо кнопки прозорими */
+.uber-eats {
+    background-color: transparent;
+    border-color: #06c167;
+}
+
+.uber-eats:hover {
+    background-color: #06c167;
+    /* Колір з'являється при наведенні */
+    transform: scale(1.05);
+}
+
+.just-eat {
+    background-color: transparent;
+    border-color: #f36d00;
+}
+
+.just-eat:hover {
+    background-color: #f36d00;
+    transform: scale(1.05);
+}
+
+
+/* === Стилі для інших секцій === */
+.address {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.map-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ffd700;
+    color: #1a1a2e;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.map-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #ffd700;
+}
+
+/* === Стилі для футера === */
+footer {
+    padding: 30px 20px;
+    font-size: 0.9em;
+    position: relative;
+    z-index: 2;
+    background-color: rgba(13, 13, 26, 0.8);
+}
+
+footer a {
+    color: #ffd700;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: text-shadow 0.3s;
+}
+
+footer a:hover {
+    text-shadow: 0 0 5px #ffd700;
+}
+
+footer .contact-info a {
+    text-decoration: underline;
+}
+
+.copyright {
+    margin-top: 20px;
+    color: #888;
+}
+
+/* === СТИЛІ ДЛЯ ФІЛЬТРІВ МЕНЮ === */
+.filter-container {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Дозволяє кнопкам переноситись на новий рядок на малих екранах */
+}
+
+.filter-button {
+    background: transparent;
+    border: 1px solid #ffd700;
+    color: #ffd700;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-button:hover {
+    background-color: rgba(255, 215, 0, 0.2);
+}
+
+.filter-button.active {
+    background-color: #ffd700;
+    color: #1a1a2e;
+    font-weight: bold;
+}
+
+/* Клас для приховування елементів меню з анімацією */
+.menu-item.hidden {
+    display: none;
+}
+
+/* === СТИЛІ ДЛЯ ДОДАНИХ ЗОБРАЖЕНЬ === */
+
+/* Стиль для головного зображення в хедері */
+.hero-image {
+    max-width: 90%;
+    /* Зображення не буде ширшим за 90% від батьківського блоку */
+    width: 450px;
+    /* Але не більше 450px */
+    height: auto;
+    /* Висота автоматично підлаштовується */
+    margin-top: 30px;
+    /* Відступ зверху */
+    border-radius: 20px;
+    /* Округлені кути */
+    border: 3px solid #ffd700;
+    /* Жовта рамка */
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    /* Ефект світіння */
+}
+
+/* Контейнер для зображення в меню */
+.menu-image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    /* Відступ знизу */
+}
+
+/* Стиль для зображення в меню */
+.menu-image {
+    max-width: 80%;
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+    border: 2px solid #555;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.menu-image:hover {
+    transform: scale(1.05);
+    /* Збільшення при наведенні */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
