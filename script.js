@@ -91,29 +91,40 @@ createStars();
 
 // === ЛОГІКА ДЛЯ КНОПКИ "ПОВЕРНУТИСЯ НАГОРУ" ===
 
+// === ДІАГНОСТИЧНА ВЕРСІЯ КОДУ ДЛЯ КНОПКИ "НАГОРУ" ===
+
 // Знаходимо нашу кнопку в документі
 const backToTopButton = document.getElementById('back-to-top-btn');
 
-// Функція, яка перевіряє, наскільки прокручена сторінка
-const scrollFunction = () => {
-    // Якщо прокрутили більше ніж на 300px від верху сторінки
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        // Додаємо кнопці клас 'visible', щоб вона з'явилася
-        backToTopButton.classList.add('visible');
-    } else {
-        // Інакше - забираємо клас, щоб вона зникла
-        backToTopButton.classList.remove('visible');
-    }
-};
+// Перевіряємо, чи знайшлася кнопка, щоб уникнути помилок
+if (backToTopButton) {
+    // Функція, яка перевіряє, наскільки прокручена сторінка
+    const scrollFunction = () => {
+        // Ця змінна буде містити поточну позицію прокрутки
+        const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
 
-// Функція для плавного скролу нагору
-const scrollToTop = () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // Магія плавного скролу!
-    });
-};
+        // ВИВОДИМО ПОТОЧНУ ПОЗИЦІЮ В КОНСОЛЬ ДЛЯ ДІАГНОСТИКИ
+        console.log('Позиція прокрутки:', scrollPosition);
 
-// Додаємо слухачів подій
-window.onscroll = () => scrollFunction(); // Викликаємо функцію при кожному скролі
-backToTopButton.onclick = () => scrollToTop(); // Викликаємо функцію при кліку на кнопку
+        // Якщо прокрутили більше ніж на 300px від верху сторінки
+        if (scrollPosition > 300) {
+            // Додаємо кнопці клас 'visible', щоб вона з'явилася
+            backToTopButton.classList.add('visible');
+        } else {
+            // Інакше - забираємо клас, щоб вона зникла
+            backToTopButton.classList.remove('visible');
+        }
+    };
+
+    // Функція для плавного скролу нагору
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
+    // Додаємо слухачів подій
+    window.addEventListener('scroll', scrollFunction); // Використовуємо addEventListener
+    backToTopButton.addEventListener('click', scrollToTop); // Використовуємо addEventListener
+}
