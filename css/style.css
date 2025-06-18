@@ -121,10 +121,30 @@ section:nth-of-type(4) {
 }
 
 /* === Стилі для заголовка === */
+/* === Стилі для заголовка === */
 header {
-    padding: 40px 20px;
     position: relative;
     z-index: 2;
+    color: #ffffff;
+    /* Переконуємось, що текст білий */
+    text-align: center;
+
+    /* Збільшуємо відступи, щоб було краще видно фон */
+    padding: 100px 20px;
+
+    /* Встановлюємо фонове зображення з ефектом затемнення */
+    /* linear-gradient створює напівпрозорий чорний шар поверх зображення */
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('/img/hero-burger.jpg');
+
+    /* Налаштування фонового зображення */
+    background-size: cover;
+    /* Масштабує зображення, щоб воно покрило весь блок */
+    background-position: center center;
+    /* Центрує зображення */
+    background-repeat: no-repeat;
+    /* Забороняє повторення зображення */
 }
 
 header h1 {
@@ -313,23 +333,6 @@ footer .contact-info a {
 
 /* === СТИЛІ ДЛЯ ДОДАНИХ ЗОБРАЖЕНЬ === */
 
-/* Стиль для головного зображення в хедері */
-.hero-image {
-    max-width: 90%;
-    /* Зображення не буде ширшим за 90% від батьківського блоку */
-    width: 450px;
-    /* Але не більше 450px */
-    height: auto;
-    /* Висота автоматично підлаштовується */
-    margin-top: 30px;
-    /* Відступ зверху */
-    border-radius: 20px;
-    /* Округлені кути */
-    border: 3px solid #ffd700;
-    /* Жовта рамка */
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-    /* Ефект світіння */
-}
 
 /* Контейнер для зображення в меню */
 .menu-image-container {
