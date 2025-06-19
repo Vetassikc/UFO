@@ -710,38 +710,44 @@ footer .contact-info a {
     font-style: normal;
 }
 
-/* Нові стилі для групи кнопок */
-.cookie-btn-group {
+/* === НОВІ СТИЛІ ДЛЯ COOKIE БАНЕРА === */
+#cookie-notice {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1c1c2e;
+    border-top: 1px solid #ffd700;
+    padding: 1rem;
+    z-index: 2000;
     display: flex;
     justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    /* Для мобільних пристроїв */
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.5s ease-in-out;
 }
 
-.cookie-btn {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    font-family: 'Orbitron', sans-serif;
+#cookie-notice.cookie-notice--hidden {
+    display: none;
+}
+
+.cookie-notice__text {
+    margin: 0;
+    color: #dddddd;
     font-size: 0.9em;
+}
+
+.cookie-notice__actions button {
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 1px solid #ffd700;
     cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
     background-color: #ffd700;
     color: #1a1a2e;
+    font-family: 'Orbitron', sans-serif;
 }
 
-.cookie-btn:hover {
-    transform: scale(1.05);
-}
-
-/* Стиль для другорядних кнопок */
-.cookie-btn.secondary {
+#cookie-decline {
     background-color: transparent;
     color: #ffd700;
-    border: 1px solid #ffd700;
-}
-
-.cookie-btn.secondary:hover {
-    background-color: rgba(255, 215, 0, 0.1);
 }

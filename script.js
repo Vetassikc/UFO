@@ -135,52 +135,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// === РОЗШИРЕНА ЛОГІКА ДЛЯ COOKIE MODAL ===
+// === НОВА ЛОГІКА ДЛЯ COOKIE БАНЕРА З ДІАГНОСТИКОЮ ===
+try {
+    console.log('[Cookie Script] Скрипт запущено.');
 
-document.addEventListener('DOMContentLoaded', () => {
+    const notice = document.getElementById('cookie-notice');
+    const acceptBtn = document.getElementById('cookie-accept');
+    const declineBtn = document.getElementById('cookie-decline');
 
-    const modalOverlay = document.getElementById('cookie-modal-overlay');
-    // Знаходимо всі три кнопки
-    const acceptAllBtn = document.getElementById('cookie-accept-all-btn');
-    const acceptNecessaryBtn = document.getElementById('cookie-accept-necessary-btn');
-    const rejectBtn = document.getElementById('cookie-reject-btn');
+    if (notice && acceptBtn && declineBtn) {
+        console.log('[Cookie Script] Всі елементи (банер, кнопки) знайдено в HTML.');
 
-    // Функція, яка ховає вікно і зберігає вибір користувача
-    const handleConsent = (consentType) => {
-        // Зберігаємо вибір ('all', 'necessary', 'rejected') у пам'яті браузера
-        localStorage.setItem('cookieConsent', consentType);
-        
-        if (modalOverlay) {
-            modalOverlay.classList.remove('visible');
-            document.body.classList.remove('modal-open');
+        const consent = localStorage.getItem('user_cookie_consent');
+        console.log('[Cookie Script] Перевірка localStorage. Значення:', consent);
+
+        if (!consent) {
+            console.log('[Cookie Script] Згода не знайдена. Показуємо банер.');
+            notice.classList.remove('cookie-notice--hidden');
         }
 
-        // ВАЖЛИВО: Тут у майбутньому можна додати логіку
-        // Наприклад, завантажувати скрипт Google Analytics тільки якщо consentType === 'all'
-        if (consentType === 'all') {
-            console.log('Користувач прийняв усі cookie. Можна завантажувати аналітику.');
-        } else {
-            console.log('Користувач відмовився від необов`язкових cookie.');
-        }
-    };
+        acceptBtn.addEventListener('click', () => {
+            console.log('[Cookie Script] Кнопка "Прийняти" натиснута.');
+            localStorage.setItem('user_cookie_consent', 'accepted');
+            notice.classList.add('cookie-notice--hidden');
+        });
 
-    // Перевіряємо, чи був вибір зроблений раніше
-    if (!localStorage.getItem('cookieConsent')) {
-        // Якщо вибору немає, показуємо модальне вікно
-        if (modalOverlay) {
-            modalOverlay.classList.add('visible');
-            document.body.classList.add('modal-open');
-        }
+        declineBtn.addEventListener('click', () => {
+            console.log('[Cookie Script] Кнопка "Відхилити" натиснута.');
+            localStorage.setItem('user_cookie_consent', 'declined');
+            notice.classList.add('cookie-notice--hidden');
+        });
+
+    } else {
+        console.error('[Cookie Script] ПОМИЛКА: Не вдалося знайти один або кілька елементів банера. Перевірте id в HTML.');
     }
 
-    // Додаємо слухачів подій для кожної кнопки
-    if (acceptAllBtn) {
-        acceptAllBtn.addEventListener('click', () => handleConsent('all'));
-    }
-    if (acceptNecessaryBtn) {
-        acceptNecessaryBtn.addEventListener('click', () => handleConsent('necessary'));
-    }
-    if (rejectBtn) {
-        rejectBtn.addEventListener('click', () => handleConsent('rejected'));
-    }
-});
+} catch (e) {
+    console.error('[Cookie Script] Виникла критична помилка в роботі скрипта:', e);
+}
