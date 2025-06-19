@@ -271,14 +271,25 @@
     </footer>
 
     <button id="back-to-top-btn" title="Повернутися нагору">🚀</button>
-    <div id="cookie-notice" class="cookie-notice--hidden">
-      <p class="cookie-notice__text">
-        Ми використовуємо необхідні cookie для роботи сайту. Погоджуючись, ви
-        дозволяєте нам покращувати ваш досвід.
-      </p>
-      <div class="cookie-notice__actions">
-        <button id="cookie-accept">Прийняти</button>
-        <button id="cookie-decline">Відхилити</button>
+    <div id="cookie-modal-overlay" class="hidden">
+      <div id="cookie-modal-content">
+        <h3>Ваша приватність важлива для нас</h3>
+        <p>
+          Ми використовуємо cookie-файли для покращення вашого досвіду, аналізу
+          трафіку та персоналізації контенту. Ви можете прийняти всі cookie або
+          лише ті, що необхідні для роботи сайту.
+        </p>
+        <div class="cookie-btn-group">
+          <button id="cookie-accept-all-btn" class="cookie-btn">
+            Прийняти всі
+          </button>
+          <button id="cookie-accept-necessary-btn" class="cookie-btn secondary">
+            Лише необхідні
+          </button>
+          <button id="cookie-reject-btn" class="cookie-btn secondary">
+            Відхилити
+          </button>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>
