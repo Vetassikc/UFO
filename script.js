@@ -55,7 +55,7 @@ style.innerHTML = `
         animation: fadeOut 0.5s forwards;
     }
     .menu-item {
-         animation: fadeIn 0.5s forwards;
+        animation: fadeIn 0.5s forwards;
     }
     @keyframes fadeOut {
         from { opacity: 1; transform: scale(1); }
@@ -132,5 +132,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
     } else {
         console.error('ПОМИЛКА: Кнопка "нагору" з id "back-to-top-btn" не знайдена в HTML.');
+    }
+});
+
+// === РОЗШИРЕНА ЛОГІКА ДЛЯ COOKIE MODAL ===
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const modalOverlay = document.getElementById('cookie-modal-overlay');
+    // Знаходимо всі три кнопки
+    const acceptAllBtn = document.getElementById('cookie-accept-all-btn');
+    const acceptNecessaryBtn = document.getElementById('cookie-accept-necessary-btn');
+    const rejectBtn = document.getElementById('cookie-reject-btn');
+
+    // Функція, яка ховає вікно і зберігає вибір користувача
+    const handleConsent = (consentType) => {
+        // Зберігаємо вибір ('all', 'necessary', 'rejected') у пам'яті браузера
+        localStorage.setItem('cookieConsent', consentType);
+        
+        if (modalOverlay) {
+            modalOverlay.classList.remove('visible');
+            document.body.classList.remove('modal-open');
+        }
+
+        // ВАЖЛИВО: Тут у майбутньому можна додати логіку
+        // Наприклад, завантажувати скрипт Google Analytics тільки якщо consentType === 'all'
+        if (consentType === 'all') {
+            console.log('Користувач прийняв усі cookie. Можна завантажувати аналітику.');
+        } else {
+            console.log('Користувач відмовився від необов`язкових cookie.');
+        }
+    };
+
+    // Перевіряємо, чи був вибір зроблений раніше
+    if (!localStorage.getItem('cookieConsent')) {
+        // Якщо вибору немає, показуємо модальне вікно
+        if (modalOverlay) {
+            modalOverlay.classList.add('visible');
+            document.body.classList.add('modal-open');
+        }
+    }
+
+    // Додаємо слухачів подій для кожної кнопки
+    if (acceptAllBtn) {
+        acceptAllBtn.addEventListener('click', () => handleConsent('all'));
+    }
+    if (acceptNecessaryBtn) {
+        acceptNecessaryBtn.addEventListener('click', () => handleConsent('necessary'));
+    }
+    if (rejectBtn) {
+        rejectBtn.addEventListener('click', () => handleConsent('rejected'));
     }
 });

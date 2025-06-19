@@ -656,3 +656,92 @@ footer .contact-info a {
     transform: scale(1.1);
 }
 
+/* === СТИЛІ ДЛЯ СЕКЦІЇ ВІДГУКІВ === */
+#testimonials {
+    /* Можна додати інший фон для візуального розділення */
+    background-color: rgba(13, 13, 26, 0.8);
+}
+
+.testimonials-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* Відстань між картками */
+    flex-wrap: wrap;
+    /* Дозволяє карткам переноситись на новий рядок на менших екранах */
+    margin-top: 20px;
+}
+
+.testimonial-card {
+    background-color: #2a2a3e;
+    border: 1px solid #555;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 320px;
+    /* Максимальна ширина однієї картки */
+    flex: 1;
+    /* Дозволяє карткам розтягуватися */
+    min-width: 280px;
+    /* Мінімальна ширина */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.testimonial-rating {
+    font-size: 1.2em;
+    color: #ffd700;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: #dddddd;
+    margin: 0 0 15px 0;
+    flex-grow: 1;
+    /* Текст буде займати весь доступний простір по висоті */
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: #fff;
+    text-align: right;
+    font-style: normal;
+}
+
+/* Нові стилі для групи кнопок */
+.cookie-btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    /* Для мобільних пристроїв */
+}
+
+.cookie-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    background-color: #ffd700;
+    color: #1a1a2e;
+}
+
+.cookie-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Стиль для другорядних кнопок */
+.cookie-btn.secondary {
+    background-color: transparent;
+    color: #ffd700;
+    border: 1px solid #ffd700;
+}
+
+.cookie-btn.secondary:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+}
